@@ -1,0 +1,19 @@
+# One external MCP only: https://github.com/Slacker-LLC/solidworks-mcp
+# Start SolidWorks yourself and finish modal dialogs BEFORE connecting Codex.
+# Replace placeholders on the target machine. This file is not active configuration.
+# Merge into Codex config; do not overwrite unrelated settings.
+[mcp_servers.solidworks]
+command = '<SOLIDWORKS_MCP_EXECUTABLE>'
+args = []
+# During reconstruction, do not open original files or run assembly/drawing tools.
+# open_document can be enabled in LOCAL config only after generated.SLDPRT is frozen.
+# Resume reconstruction by manually opening the saved generated part if needed.
+disabled_tools = ['open_document', 'list_components', 'insert_component', 'add_mate', 'list_mates', 'set_component_fixed', 'create_drawing', 'list_sheets', 'add_sheet', 'activate_sheet', 'insert_standard_views', 'insert_model_view', 'insert_projected_view', 'insert_section_view', 'insert_detail_view', 'list_drawing_views', 'activate_drawing_view', 'create_drawing_sketch', 'set_drawing_view', 'insert_model_annotations', 'auto_dimension_view', 'insert_center_marks', 'insert_centerlines', 'add_note']
+
+[mcp_servers.solidworks.env]
+# Limit writes to the selected case output directory, not the whole cases tree.
+SW_MCP_OUTPUT_ROOT = '<CASE_OUTPUT_DIRECTORY>'
+# Optional if no default Part template is configured:
+# SW_MCP_TEMPLATE_DIR = '<SOLIDWORKS_TEMPLATE_DIRECTORY>'
+# The local .env is not automatically loaded by Codex.
+# Output confinement does not restrict reads; keep Ground Truth outside the modeling environment.

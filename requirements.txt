@@ -1,0 +1,5 @@
+# Environment checker uses stdlib. MCP/COM smoke testing requires these packages.
+jsonschema>=4.23,<5
+mcp>=1.29,<2
+pywin32>=306; sys_platform == 'win32'
+# Install Slacker-LLC/solidworks-mcp separately, outside this repository.

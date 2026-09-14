@@ -1,5 +1,7 @@
 # 单零件案例
 
+此目录仅为原有单件盲测模板；已完成实验的公开摘要在 docs/PROJECT_REPORT.zh-CN.md。完整机械手的私有输入契约见 runtime/com/README.md，未上传真实数据。
+
 当前没有真实图纸或 SLDPRT，只有 `_template` 目录。不创建伪造 CAD 文件或虚假评估结果。
 复制 `_template` 成新的案例目录，再由用户提供有权使用的资料。
 

@@ -1,5 +1,7 @@
 # Codex 执行策略
 
+适用范围：原有单件盲测/MCP 路径。source-assisted 装配和 COM 参考执行不使用本单件 Schema 冒充装配协议，遵循 AGENTS.md 更新规则及 runtime/com/README.md。
+
 输入经过校验的 DrawingSpec、FeaturePlan、当前 ModelState。Ground Truth 保持 locked，始终遵循 AGENTS.md。
 输出更新后的 ModelState，符合 schemas/model_state.json；运行数据保存在本地 output/ 或 runs/，不提交真实尺寸。
 

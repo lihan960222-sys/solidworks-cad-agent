@@ -2,7 +2,7 @@
 
 以 **GPT-6 Astra + Codex + SolidWorks 官方 API** 验证二维图纸辅助建模、原生可编辑特征和多零件静态装配的实验项目。
 
-当前定位：**代码仓库与可复用工作流，处于验证原型阶段**，不是自主 CAD 内核、通用图纸识别产品或制造级自动设计系统。本次未发布可安装 Skill；后续建议以 Skill 作为仓库执行器的操作入口。
+当前定位：**代码仓库与可复用工作流，处于验证原型阶段**，不是自主 CAD 内核、通用图纸识别产品或制造级自动设计系统。仓库现包含 [solidworks-drawing Skill](skills/solidworks-drawing/SKILL.md) 及其通用执行器；[制造图草稿配置](skills/solidworks-drawing/references/manufacturing-draft-profile.md) 区分已确认需求与已有实现。DimXpert、自动选图幅/全局排版以及 DWG 主交付链路仍待集成验证。
 
 ## 先读这三份文档
 

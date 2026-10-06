@@ -1,0 +1,4 @@
+interface:
+  display_name: "SolidWorks 原生工程图"
+  short_description: "从三维零件提取几何事实，由模型规划并用固定程序生成原生工程图"
+  default_prompt: "使用 $solidworks-drawing，为当前 SolidWorks 零件规划并生成一张原生工程图，检查后打开供我验收。"

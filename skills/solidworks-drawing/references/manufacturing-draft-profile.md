@@ -7,7 +7,7 @@ Apply this profile to the integrated 3D-to-manufacturing-draft workflow. Preserv
 - First stage: one saved native SOLIDWORKS part per request. Support for imported STEP/B-rep is a later extension; batch generation and assemblies are outside this first-stage acceptance scope.
 - Deliver a manufacturing-drawing draft for an engineer to review. Express all reliably determinable geometry; list missing manufacturing requirements and unsupported annotations explicitly.
 - Reuse existing model dimensions, PMI and specified drafting rules. Use DimXpert where a tested operation is available. Do not generate guessed tolerances, functional datum schemes, thread classes or roughness values. Missing requirements belong in a consolidated review list.
-- The drawing skill is the planning/verification entry point. The automation-port skill is a candidate source of reusable native model-dimension import operations; this profile does not establish an integrated dependency or certify that import as a DimXpert operation.
+- The target is a new standalone `solidworks-drafting` skill containing Markdown and code. Integrate reusable drawing and automation-port code inside that package; it must not depend on installing the old skills or merely route between them. This legacy skill remains a source and compatibility tool, not the new main entry. The new package is planned, not yet implemented.
 
 ## Sheet, views and layout references
 
@@ -33,7 +33,7 @@ For a table to replace repeated on-view information:
 
 ## Delivery and verification
 
-Target flow: authorized 3D model -> existing/defined dimensions and PMI -> internal native drawing with complete layout -> DWG -> PDF/PNG -> output checks. Complete layout in SOLIDWORKS; DWG is the principal editable exchange deliverable, PDF is the review artifact, and PNG is a preview. A saved SLDDRW may remain an internal verification artifact.
+Target flow: authorized 3D model -> existing/defined dimensions and PMI -> internal native drawing with complete layout -> DWG -> independent DWG readback -> PDF -> output checks. Complete layout in SOLIDWORKS; deliver only DWG and PDF. Do not create PNG deliverables. Keep SLDDRW, any working model and verification data in the internal run directory.
 
 The current runner requires `output_drawing` as a new SLDDRW path and saves/reopens that file. Retain this verified path until a replacement is implemented and tested. It has no bundled DWG export/reopen pipeline; the DWG-first delivery and downstream conversion are requirements awaiting implementation. Do not claim that a temporary unsaved drawing or a DWG has passed the existing native reopen checks.
 
@@ -45,6 +45,8 @@ Development acceptance additionally includes representative blind reconstruction
 
 Implemented foundations: model geometry inspection; explicit template/sheet/view/scale planning; standard views and straight full sections; supported associated dimensions; attached labels/general tables; dimension selection and row placement; source integrity and SLDDRW save/reopen checks; native PDF routes with documented limits.
 
-Not yet integrated: DimXpert Auto Dimension Scheme and PMI transfer; template/reference extraction; automatic paper/scale/view-layout selection; general text/leader collision resolution; native Auto Arrange Dimensions; detail views; DWG export/reopen and DWG-to-PDF/PNG validation. Existing arbitrary feature-dimension and GD&T limits still apply.
+Not yet integrated: DimXpert Auto Dimension Scheme and PMI transfer; template/reference extraction; automatic paper/scale/view-layout selection; general text/leader collision resolution; native Auto Arrange Dimensions; detail views; DWG export/reopen and DWG-to-PDF validation. Existing arbitrary feature-dimension and GD&T limits still apply.
 
 Annotation style may be derived from suitable library references without a fixed 45-degree constraint. Projection follows the selected template and must be checked against the actual layout. These decisions do not remove the feature-completeness, readability, single-sheet or A2-maximum requirements.
+
+Canonical updated design and plan: [design](https://github.com/lihan960222-sys/solidworks-drawing-skill/blob/main/docs/superpowers/specs/2026-10-06-solidworks-drafting-design.md), [execution plan](https://github.com/lihan960222-sys/solidworks-drawing-skill/blob/main/docs/superpowers/plans/2026-10-06-solidworks-drafting.md).
